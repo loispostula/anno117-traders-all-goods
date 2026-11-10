@@ -1,0 +1,113 @@
+guid	name	english	base_price	regions
+2063	Good Flax	Flax	12	Roman;Celtic;Egyptian
+2068	Good Oats	Oats	4	Roman;Egyptian
+2069	Good Wheat	Wheat	6	Roman;Celtic;Egyptian
+2070	Good Grapes	Grapes	12	Roman;Celtic;Egyptian
+2071	Good Lavender	Lavender	12	Roman;Egyptian
+2072	Good Olives	Olives	12	Roman;Egyptian
+2073	Good Sheep	Sheep	2	Roman;Celtic;Egyptian
+2074	Good Pigs	Pigs	3	Roman;Celtic
+2075	Good Horses	Horses	32	Roman;Celtic;Egyptian
+2076	Good Honeycombs	Honeycombs	11	Roman;Celtic;Egyptian
+2077	Good Wood	Wood	2	Roman;Celtic;Egyptian
+2078	Good Limestone	Limestone	6	Roman;Celtic;Egyptian
+2079	Good Silver Ore	Silver Ore	5	Celtic
+2080	Good Iron Ore	Iron Ore	5	Roman;Celtic;Egyptian
+2084	Good Marble Blocks	Uncut Marble	16	Roman
+2085	Good Charcoal	Coal	4	Roman;Celtic;Egyptian
+2086	Good Clay	Clay	4	Roman
+2087	Good Sturgeons	Sturgeon	18	Roman
+2088	Good Sardines	Sardines	6	Roman
+2089	Good Mackerels	Mackerel	8	Roman
+2090	Good Salt	Salt	4	Roman
+2091	Good Silica	Silica	8	Roman;Celtic;Egyptian
+2093	Good Barley	Barley	4	Celtic;Egyptian
+2094	Good Dye Plants	Dye Plants	4	Celtic
+2097	Good Cockles	Cockles	5	Celtic
+2099	Good Copper Ore	Copper Ore	2	Celtic;Egyptian
+2100	Good Tin Ore	Tin Ore	2	Celtic;Egyptian
+2101	Good Granite Blocks	Granite Block	6	Celtic;Egyptian
+2102	Good Mud	Mud	6	Celtic;Egyptian
+2103	Good Reed	Reeds	2	Celtic;Egyptian
+2105	Good Aurochs	Aurochs	4	Celtic
+2106	Good Marsh Birds	Small Birds	18	Celtic
+2108	Good Eels	Eels	6	Celtic
+2110	Good Leather	Leather	17	Roman;Celtic;Egyptian
+2112	Good Oysters	Oysters	18	Roman
+2115	Good Iron	Iron	15	Roman;Celtic;Egyptian
+2117	Good Glass	Glass	29	Roman
+2119	Good Flour	Flour	10	Roman;Celtic;Egyptian
+2121	Good Cloth	Cloth	36	Roman;Egyptian
+2123	Good Ornate Wood	Ornate Wood	134	Roman
+2124	Good Pigments	Pigments	25	Roman;Egyptian
+2126	Good Celtic Green	Celtic Green	36	Celtic
+2127	Good Bronze	Bronze	14	Celtic;Egyptian
+2128	Good Chassis	Chassis	28	Celtic
+2129	Good Silver	Silver	15	Celtic
+2131	Good Malt	Malt	8	Celtic;Egyptian
+2132	Good Fat	Lard	15	Roman;Celtic;Egyptian
+2133	Good Bird Tongues	Bird Tongues	50	Celtic
+2135	Good Strings	String	23	Roman
+2136	Good Porridge	Porridge	12	Roman;Egyptian
+2137	Good Bread	Bread	26	Roman;Celtic;Egyptian
+2138	Good Wine	Wine	45	Roman;Celtic;Egyptian
+2139	Good Garum	Garum	30	Roman
+2140	Good Oysters with Caviar	Oysters with Caviar	99	Roman
+2141	Good Tunics	Tunics	12	Roman;Celtic;Egyptian
+2142	Good Hats	Pileus	10	Roman
+2143	Good Soap	Soap	39	Roman;Egyptian
+2144	Good Sandals	Sandals	41	Roman;Celtic;Egyptian
+2145	Good Togas	Togas	95	Roman;Celtic
+2146	Good Necklaces	Necklaces	198	Roman;Egyptian
+2147	Good Loungers	Loungers	143	Roman;Egyptian
+2149	Good Olive Oil	Olive Oil	36	Roman;Celtic;Egyptian
+2150	Good Wax Tablets	Writing Tablets	67	Roman
+2151	Good Fine Glass	Fine Glass	110	Roman;Celtic;Egyptian
+2152	Good Mosaics	Mosaics	93	Roman;Egyptian
+2153	Good Cheese	Cheese	24	Roman;Celtic;Egyptian
+2154	Good Beer	Beer	20	Roman;Celtic;Egyptian
+2155	Good Bird Tongues in Aspic	Bird Tongues in Aspic	98	Roman;Celtic
+2156	Good Brooches	Brooches	39	Roman;Celtic;Egyptian
+2157	Good Torcs	Torcs	20	Celtic
+2158	Good Trousers	Trousers	21	Celtic
+2159	Good Reed Shoes	Reed Shoes	18	Celtic
+2161	Good Cloaks	Cloaks	62	Roman;Celtic;Egyptian
+2162	Good Mirrors	Handmirrors	94	Roman;Celtic;Egyptian
+2163	Good Chariots	Chariots	88	Roman;Celtic
+2166	Good Lyres	Standing Lyres	187	Roman
+2169	Good Wattle and Daub	Wattle & Daub	18	Celtic
+2171	Good Ropes	Rope	24	Roman;Celtic;Egyptian
+2172	Good Sails	Sails	20	Roman;Celtic;Egyptian
+2173	Good Weapons	Weapons	42	Roman;Celtic;Egyptian
+2174	Good Timber	Timber	6	Roman;Celtic;Egyptian
+2176	Good Tiles	Tiles	18	Roman;Celtic;Egyptian
+2178	Good Concrete	Concrete	38	Roman;Celtic;Egyptian
+2179	Good Marble	Marble	52	Roman
+2180	Good Tyrian Purple	Tyrian Purple	39	Roman
+3158	Good Sea Snails	Murex Snails	15	Roman
+7985	Good Samphire	Saltwort	12	Celtic
+8404	Good Dartmoor Ponies	Ponies	12	Celtic
+8405	Good Sausages	Sausages	28	Celtic
+8420	Good Sea Shells	Seashells	15	Celtic
+8558	Good Caviar	Caviar	41	Roman
+8561	Good Sandarac Wood	Sandarac Wood	12	Roman
+8562	Good Cushions	Cushions	75	Roman
+8563	Good Minerals	Minerals	15	Roman;Egyptian
+13810	Good Armor	Armour	65	Roman;Celtic;Egyptian
+31694	Good Hemp	Hemp	4	Roman;Celtic;Egyptian
+31695	Good Resin	Resin	8	Roman;Celtic
+31697	Good Gold Ore	Gold Ore	80	Roman;Egyptian
+31698	Good Gold	Gold	108	Roman;Egyptian
+31700	Good Amphorae	Amphorae	28	Roman;Celtic
+31701	Good Herbs	Herbs	9	Celtic
+31702	Good Beavers	Beavers	12	Celtic
+31703	Good Lye	Saltwash	24	Celtic
+31704	Good Wig Hoods	Head Piece	40	Celtic
+31706	Good Clan Shields	Clan Shields	39	Celtic
+31707	Good Pelt Hats	Fur Hats	64	Celtic
+31708	Good Wigs	Wigs	96	Celtic;Egyptian
+31709	Good Granite	Granite	38	Celtic;Egyptian
+31768	Good Roast Beef	Roast Beef	52	Celtic
+55954	Good Drinking Horns	Drinking Horns	30	Celtic;Egyptian
+145220	Good Idols	Statuettes	68	Roman;Celtic;Egyptian
+145221	Good Boardgames	Latrunculi Sets	157	Roman;Celtic;Egyptian

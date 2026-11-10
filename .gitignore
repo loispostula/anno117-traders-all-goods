@@ -1,0 +1,6 @@
+*.rda
+*.zip
+__pycache__/
+.DS_Store
+dist/
+out/
