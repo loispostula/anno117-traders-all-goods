@@ -1,8 +1,8 @@
 # Anno 117: NPC Traders Sell All Finished Goods
 
-Mod for Anno 117: Pax Romana. The NPC traders sell every finished good of Latium and Albion: the 35 goods residents consume, including the Prophecies of Ash goods. With Celtic Independence Overhaul, also its Wicker Baskets and Ornamented Ponies.
+Mod for Anno 117: Pax Romana. The NPC traders sell every finished good of Latium, Albion and Aegyptus: the 50 goods residents consume, including the Prophecies of Ash and Dawn of the Delta goods. With Celtic Independence Overhaul, also its Wicker Baskets and Ornamented Ponies.
 
-**Status: 0.1.0 (all 112 goods) is being tested in game; 0.2.0 (finished goods only) not tested yet.** The patch has been run through the mod loader's own patch engine on the vanilla `assets.xml`, with no warnings (see [Check against the game data](#check-against-the-game-data)).
+**Status: 0.2.0 tested in game by a player (see [In-game results](#in-game-results)); 0.3.0 adds Dawn of the Delta, loads without warnings on game 3.0.** The patch has been run through the mod loader's own patch engine on the vanilla `assets.xml`, with no warnings (see [Check against the game data](#check-against-the-game-data)).
 
 ## What changes
 
@@ -14,6 +14,9 @@ Mod for Anno 117: Pax Romana. The NPC traders sell every finished good of Latium
 | Manx (Albion) | `27079` | 6 |
 | Caeso (Latium pirate) | `37495` | 4 |
 | Voada (Albion pirate) | `37494` | 4 |
+| Heron (Aegyptus, Dawn of the Delta) | `153067` | 1 |
+| Valeria (Aegyptus, Dawn of the Delta) | `153068` | 1 |
+| Kandis (Aegyptus pirate, Dawn of the Delta) | `153069` | 1 |
 
 - Every stock tier of these traders (`Trader/OfferedGoods/Item`) gets every finished good from [`reference/goods.tsv`](reference/goods.tsv). Goods are offered from the start of the game, in both provinces.
 - With Celtic Independence Overhaul (`celtic-independence-overhaul-jtmzac`, optional, loads before) active, they also get Wicker Baskets (`1400300500`) and Ornamented Ponies (`1400300510`). These ModOps sit in a `#celtic-independence-overhaul-jtmzac` group and do nothing without CIO. GUIDs read from CIO 0.9.2 (`includes/goods/celtic_wicker_baskets.include.xml`, `celtic_ornamented_ponies.include.xml`), same on its `main`.
@@ -27,14 +30,15 @@ Not changed:
 - **Obsidian** (`145102`) stays unsellable. It is a raw material, the barter currency of Caecilia's volcano trader, and has no production building.
 - **Caecilia** (`145051`, Prophecies of Ash) is a barter trader for items only, with no goods stock. **Julia** (`41986`) is a campaign trader with goods trading off. Rival AI players are not traders.
 - **The Hippodrome** (DLC2) adds no new good. Chariots are in the list; Horses are a raw good.
+- **Heron's sector project** (`182192`) has no goods stock.
 
 ### Which goods
 
-Finished goods = `Product` assets with `TransportGoodsType` `Needs`, the game's own category for consumer goods: 35 goods, all residence needs, all with a production building. Raw goods residents also consume directly (Sardines, Cockles, Eels, Horses) have no transport category and are left out. Full list with English names, prices and regions: [`reference/goods.tsv`](reference/goods.tsv). 0.1.0 used every stored good with a base price (112).
+Finished goods = `Product` assets with `TransportGoodsType` `Needs`, the game's own category for consumer goods: 50 goods, all residence needs, all with a production building. Raw goods residents also consume directly (Sardines, Cockles, Eels, Horses) have no transport category and are left out. Full list with English names, prices and regions: [`reference/goods.tsv`](reference/goods.tsv). 0.1.0 used every stored good with a base price (112); 0.2.0 had 35 finished goods (before Dawn of the Delta).
 
 ## DLC
 
-Checked against the game files of the 2026-10-13 install: base game, Prophecies of Ash (DLC1), The Hippodrome (DLC2) and the three cosmetic packs are installed. Dawn of the Delta (DLC3) is not installed. The game data already has an `Egyptian` region, but no Egyptian-only good.
+Checked against game update 3.0 (Steam build 26043928, 2026-11-10), which ships Dawn of the Delta (DLC3): 15 Egyptian finished goods and the Aegyptus traders Heron, Valeria and Kandis. In vanilla, Valeria of Aegyptus already sells Latium and Albion goods (Bread, Brooches, Cloaks, Hand Mirrors, Chariots).
 
 After a game patch or a new DLC, regenerate the goods list (see [Development](#development)). New finished goods are picked up automatically; one without a production building stops the script and asks for a decision.
 
@@ -71,11 +75,24 @@ Any other mod that edits `Trader/OfferedGoods` of these six traders may stack go
 - [ ] Pirates Caeso and Voada sell all finished goods when at peace.
 - [ ] Existing save loads and traders show the new stock.
 
+## In-game results
+
+A player, 0.2.0, existing save, with Taludas' Increased Trader Production (×2) and Increased Trader Storage (300), which load after this mod and apply to the added goods too:
+
+- `mod-loader.log`: no warning for this mod.
+- Diana and Valeria sell the added Latium finished goods the player has unlocked (Garum, Bread, Tunics, Sandals, Olive Oil…). The trade screen stays readable.
+- Bought-out goods refill; Timber at Diana keeps its vanilla stock.
+- Goods not unlocked yet are not shown (answers the old "Locked products" question).
+- Manx and the Procurator in Albion show only vanilla goods. Manx even hides his own Wattle & Daub and Ponies, so the filter is the player's unlocks. The few Albion finished goods unlocked (Porridge, Sausages, Trousers, Reed Shoes, Beer) are all in these traders' `PreferredGoods` (the "Demande" row), and no trader offers a good it prefers. Whether Latium unlocks count in Albion is not verified.
+
+Own test, 0.3.0, game 3.0, new Endless game in Albion: the mod loads; Manx and the Procurator have no harbour at game start, so they could not be checked.
+
 ## Unresolved issues
 
 - **Tier semantics.** How the game combines several unlocked `OfferedGoods` tiers is not documented. Vanilla repeats goods across tiers with different values (Diana) and has upgrade tiers with only 1–2 goods (Procurator). The mod adds every good to every tier, so the result is the same whether the game uses the highest tier or merges them. `traiding-building-materials-all` 2.0.0, a released mod, adds goods to every tier the same way.
-- **Locked products.** Goods are `<Locked />` until the game unlocks them. Whether traders show a good the player has not unlocked yet needs an in-game test.
-- **Trade screen size.** No vanilla trader sells more than 7 goods. About 38 per trader may make the trade screen long.
+- **Unlocks per province.** Traders hide goods the player has not unlocked. Whether a good unlocked in Latium counts in Albion is not verified.
+- **Preferred goods.** A trader does not offer goods from its own `PreferredGoods` list.
+- **Trade screen size.** Only unlocked goods are shown, so the list grows with progress; readable in the in-game test.
 
 ## Development
 
@@ -111,7 +128,7 @@ python3 tools/check_patched.py <vanilla assets.xml> patched.xml
 
 `xmltest` treats every `#mod-id` condition as false and its `-p` option only knows Anno 1800 paths. To check the CIO branch: apply CIO to vanilla with `xmltest -m <cio> -o vanilla_cio.xml <vanilla> <cio>/data/base/config/export/assets.xml`, copy `mod/`, replace `Condition="#celtic-independence-overhaul-jtmzac"` with `Condition="true()"`, patch `vanilla_cio.xml` with that copy, then run `check_patched.py <vanilla> <result> --with-mod-goods`. (CIO's own new `<Asset>` entries log 162 warnings under `xmltest`; the trader patch does not need them.)
 
-Result for 0.2.0 on 2026-11-10 (xmltest GU17.1, vanilla `assets.xml` of 2026-10-13): no warning, every tier of the 6 traders has the 35 finished goods once and no CIO good, vanilla entries unchanged, a second run gives a byte-identical file, `UnsellableGoodsByNonPlayerCharacters` keeps only Obsidian. CIO branch (CIO 0.9.2): no warning from this mod, the 37 goods once in all 29 tiers.
+Result for 0.3.0 on 2026-11-10 (xmltest GU17.1, vanilla `assets.xml` of game 3.0): no warning, every tier of the 9 traders has the 50 finished goods once and no CIO good, vanilla entries unchanged, a second run gives a byte-identical file, `UnsellableGoodsByNonPlayerCharacters` keeps only Obsidian. CIO branch (checked on 0.2.0 with CIO 0.9.2): no warning from this mod, the CIO goods once in all 29 tiers.
 
 ### CI and releases
 

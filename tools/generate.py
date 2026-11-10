@@ -11,8 +11,8 @@ GOODS_TSV = ROOT / "reference/goods.tsv"
 ASSETS = ROOT / "mod/data/base/config/export/assets.xml"
 
 # NPC goods traders (3rd party participants with Trader/OfferedGoods).
-# Not patched: Julia 41986 (campaign, GoodsTrader 0) and Caecilia 145051 (Prophecies of Ash
-# barter trader, items only).
+# Not patched: Julia 41986 (campaign, GoodsTrader 0), Caecilia 145051 (Prophecies of Ash
+# barter trader, items only) and Heron's sector project 182192 (no goods stock).
 TRADERS = {
     "32777": "Diana (Latium)",
     "32778": "Valeria (Latium)",
@@ -20,6 +20,9 @@ TRADERS = {
     "27079": "Manx (Albion)",
     "37495": "Caeso (Latium pirate)",
     "37494": "Voada (Albion pirate)",
+    "153067": "Heron (Aegyptus, Dawn of the Delta)",
+    "153068": "Valeria (Aegyptus, Dawn of the Delta)",
+    "153069": "Kandis (Aegyptus pirate, Dawn of the Delta)",
 }
 # TradeBalancing: GenericTradeFeature/UnsellableGoodsByNonPlayerCharacters.
 TRADE_FEATURE = "140115"
