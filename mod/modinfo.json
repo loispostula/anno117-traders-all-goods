@@ -14,7 +14,10 @@
     "Optional": [],
     "LoadAfter": [],
     "Deprecate": [],
-    "Incompatible": []
+    "Incompatible": [
+      "traiding-goods-all",
+      "traiding-building-materials-all"
+    ]
   },
   "Category": {
     "English": "Gameplay",

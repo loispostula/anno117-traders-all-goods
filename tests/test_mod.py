@@ -94,6 +94,9 @@ class StaticTests(unittest.TestCase):
         for key in ("ModName", "Description"):
             self.assertTrue(info[key]["English"] and info[key]["French"])
         self.assertIn(str(len(GOODS)), info["Description"]["English"])
+        # Same purpose, from nexusmods.com/anno117paxromana/mods/30.
+        self.assertEqual(set(info["Dependencies"]["Incompatible"]),
+                         {"traiding-goods-all", "traiding-building-materials-all"})
 
 
 class PatchSimulationTests(unittest.TestCase):

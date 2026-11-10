@@ -36,6 +36,17 @@ Checked against the game files of the 2026-10-13 install: base game, Prophecies 
 
 After a game patch or a new DLC, regenerate the goods list (see [Development](#development)). New goods are picked up automatically; a new tradeable good without a production building stops the script and asks for a decision.
 
+## Compatibility
+
+| Mod | ModID | Relation |
+|---|---|---|
+| Trading goods all (Nexus mod 30) | `traiding-goods-all` | **Incompatible**: same purpose |
+| The sellers have all the building materials (Nexus mod 30, 2.0.0) | `traiding-building-materials-all` | **Incompatible**: subset of this mod |
+
+`traiding-building-materials-all` 2.0.0 (2025-11-19) was read and run through `xmltest` on the current vanilla data: it still applies with no warning. It adds 4–6 building goods (0.3 per minute, cap 75) to Diana, Valeria, Procurator and Manx with the same technique as this mod (one `Add` on `Trader/OfferedGoods/Item/Goods`, which hits every tier), but without a duplicate check: Armour ends up twice in the Procurator's end-game tier (`109173`). Loaded together with this mod, goods could be listed twice, so both of that author's mods are declared incompatible. Its `traiding-limit` companion was not checked.
+
+Any other mod that edits `Trader/OfferedGoods` of these six traders may stack goods.
+
 ## Installation
 
 1. Download `traders-sell-all-goods-postula-<version>.zip`.
@@ -57,10 +68,9 @@ After a game patch or a new DLC, regenerate the goods list (see [Development](#d
 
 ## Unresolved issues
 
-- **Tier semantics.** How the game combines several unlocked `OfferedGoods` tiers is not documented. Vanilla repeats goods across tiers with different values (Diana) and has upgrade tiers with only 1–2 goods (Procurator). The mod adds every good to every tier, so the result is the same whether the game uses the highest tier or merges them.
+- **Tier semantics.** How the game combines several unlocked `OfferedGoods` tiers is not documented. Vanilla repeats goods across tiers with different values (Diana) and has upgrade tiers with only 1–2 goods (Procurator). The mod adds every good to every tier, so the result is the same whether the game uses the highest tier or merges them. `traiding-building-materials-all` 2.0.0, a released mod, adds goods to every tier the same way.
 - **Locked products.** Goods are `<Locked />` until the game unlocks them. Whether traders show a good the player has not unlocked yet needs an in-game test.
 - **Trade screen size.** No vanilla trader sells more than 7 goods. 112 goods may make the trade screen long.
-- **The Nexus mod.** The older mod (nexusmods.com/anno117paxromana/mods/30) could not be read (Nexus blocks automated access). This mod is written from the game data, not from it.
 
 ## Development
 
