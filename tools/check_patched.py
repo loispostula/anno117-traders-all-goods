@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Check an assets.xml patched by the mod loader's xmltest (see README, "Check against the game data").
 
-    python3 tools/check_patched.py <vanilla assets.xml> <patched assets.xml>
+    python3 tools/check_patched.py <vanilla assets.xml> <patched assets.xml> [--with-mod-goods]
+
+--with-mod-goods: the patched file was made with the MOD_GOODS mods active (see README).
 """
 import collections
 import sys
@@ -10,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from generate import TRADERS, TRADE_FEATURE, UNBLOCKED, goods  # noqa: E402
+from generate import MOD_GOODS, TRADERS, TRADE_FEATURE, UNBLOCKED, goods  # noqa: E402
 
 
 def wanted(path):
@@ -32,8 +34,11 @@ def tiers(values):
             for tier in values.findall("Trader/OfferedGoods/Item")]
 
 
-def main(vanilla_path, patched_path):
+def main(vanilla_path, patched_path, with_mod_goods=False):
     all_goods = [g for g, *_ in goods()]
+    mod_goods = [g for items in MOD_GOODS.values() for g, _ in items]
+    if with_mod_goods:
+        all_goods += mod_goods
     vanilla, patched = wanted(vanilla_path), wanted(patched_path)
     errors = []
     for guid, label in TRADERS.items():
@@ -43,6 +48,9 @@ def main(vanilla_path, patched_path):
         for n, (vt, pt) in enumerate(zip(v, p)):
             counts = collections.Counter(g for g, *_ in pt)
             missing = [g for g in all_goods if not counts[g]]
+            unexpected = [g for g in mod_goods if counts[g]] if not with_mod_goods else []
+            if unexpected:
+                errors.append(f"{label} tier {n}: mod goods without the mod: {unexpected}")
             dupes = [g for g, c in counts.items() if c > 1]
             if missing or dupes:
                 errors.append(f"{label} tier {n}: missing {missing}, duplicated {dupes}")
@@ -60,4 +68,4 @@ def main(vanilla_path, patched_path):
 
 
 if __name__ == "__main__":
-    sys.exit(main(*sys.argv[1:3]))
+    sys.exit(main(*sys.argv[1:3], with_mod_goods="--with-mod-goods" in sys.argv))

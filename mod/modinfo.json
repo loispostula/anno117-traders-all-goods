@@ -1,5 +1,5 @@
 {
-  "Version": "0.1.0",
+  "Version": "0.2.0",
   "Anno": 8,
   "ModID": "traders-sell-all-goods-postula",
   "Difficulty": "easier",
@@ -11,8 +11,12 @@
   },
   "Dependencies": {
     "Require": [],
-    "Optional": [],
-    "LoadAfter": [],
+    "Optional": [
+      "celtic-independence-overhaul-jtmzac"
+    ],
+    "LoadAfter": [
+      "celtic-independence-overhaul-jtmzac"
+    ],
     "Deprecate": [],
     "Incompatible": [
       "traiding-goods-all",
@@ -24,12 +28,12 @@
     "French": "Gameplay"
   },
   "ModName": {
-    "English": "NPC Traders Sell All Goods",
-    "French": "Les marchands PNJ vendent tout"
+    "English": "NPC Traders Sell All Finished Goods",
+    "French": "Les marchands PNJ vendent tous les produits finis"
   },
   "Description": {
-    "English": "Diana, Valeria, the Procurator, Manx and the pirates Caeso and Voada sell every good of Latium and Albion (112 goods), including the Prophecies of Ash goods Statuettes and Latrunculi Sets. Goods they already sold keep their vanilla stock; each added good refills 0.5 per minute up to 30. Obsidian stays unsellable (Prophecies of Ash barter currency). Checked against game data with The Hippodrome.",
-    "French": "Diana, Valeria, le Procurateur, Manx et les pirates Caeso et Voada vendent toutes les marchandises du Latium et d'Albion (112), y compris les Statuettes et les Plateaux de Latrunculi de Prophecies of Ash. Les marchandises qu'ils vendaient déjà gardent leur stock d'origine ; chaque marchandise ajoutée se recharge de 0,5 par minute jusqu'à 30. L'Obsidienne reste invendable (monnaie de troc de Prophecies of Ash). Vérifié sur les données du jeu avec The Hippodrome."
+    "English": "Diana, Valeria, the Procurator, Manx and the pirates Caeso and Voada sell every finished good of Latium and Albion (35 goods residents consume), including the Prophecies of Ash Statuettes and Latrunculi Sets. With Celtic Independence Overhaul: also Wicker Baskets and Ornamented Ponies. Raw and intermediate goods and building materials are not added. Goods they already sold keep their vanilla stock; each added good refills 0.5 per minute up to 30.",
+    "French": "Diana, Valeria, le Procurateur, Manx et les pirates Caeso et Voada vendent tous les produits finis du Latium et d'Albion (35 biens de consommation), y compris les Statuettes et les Plateaux de Latrunculi de Prophecies of Ash. Avec Celtic Independence Overhaul : aussi les paniers en osier et les poneys ornés. Les matières premières, produits intermédiaires et matériaux de construction ne sont pas ajoutés. Les marchandises qu'ils vendaient déjà gardent leur stock d'origine ; chaque marchandise ajoutée se recharge de 0,5 par minute jusqu'à 30."
   },
   "KnownIssues": [
     {

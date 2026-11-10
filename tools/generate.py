@@ -26,6 +26,14 @@ TRADE_FEATURE = "140115"
 # Prophecies of Ash needs goods that vanilla forbids NPCs to sell. Obsidian (145102) stays forbidden.
 UNBLOCKED = {"145220": "Statuettes", "145221": "Latrunculi Sets"}
 
+# Final products added by other mods, only when that mod is active. GUIDs read from the mod's files.
+MOD_GOODS = {
+    "celtic-independence-overhaul-jtmzac": [  # Celtic Independence Overhaul 0.9.x
+        ("1400300500", "Wicker Baskets"),
+        ("1400300510", "Ornamented Ponies"),
+    ],
+}
+
 # Stock for each added good: refill rate and stock cap. Vanilla traders use 0.25-0.5 / 15-75.
 PRODUCTION_PER_MINUTE = "0.5"
 LIMIT = "30"
@@ -34,6 +42,13 @@ LIMIT = "30"
 def goods():
     lines = GOODS_TSV.read_text(encoding="utf-8").splitlines()[1:]
     return [line.split("\t")[:3] for line in lines if line.strip()]
+
+
+def add(trader, guid, label, indent):
+    return (f'{indent}<ModOp GUID="{trader}" AllowNoMatch="1" '
+            f'Add="Trader/OfferedGoods/Item/Goods[not(Item/Good=\'{guid}\')]">'
+            f"<Item><Good>{guid}</Good><ProductionPerMinute>{PRODUCTION_PER_MINUTE}</ProductionPerMinute>"
+            f"<Limit>{LIMIT}</Limit></Item></ModOp>  <!-- {label} -->")
 
 
 def render():
@@ -50,15 +65,14 @@ def render():
     for trader, label in TRADERS.items():
         out += [
             "",
-            f"  <!-- {label}: every stock tier offers every good. Goods already in a tier keep their vanilla values. -->",
+            f"  <!-- {label}: every stock tier offers every final product. Goods already in a tier keep their vanilla values. -->",
             f'  <Group Condition="@{trader}/Trader/OfferedGoods/Item/Goods">',
         ]
-        for guid, name, english in goods():
-            out.append(
-                f'    <ModOp GUID="{trader}" AllowNoMatch="1" '
-                f'Add="Trader/OfferedGoods/Item/Goods[not(Item/Good=\'{guid}\')]">'
-                f"<Item><Good>{guid}</Good><ProductionPerMinute>{PRODUCTION_PER_MINUTE}</ProductionPerMinute>"
-                f"<Limit>{LIMIT}</Limit></Item></ModOp>  <!-- {english or name} -->")
+        out += [add(trader, guid, english or name, "    ") for guid, name, english in goods()]
+        for mod_id, mod_goods in MOD_GOODS.items():
+            out.append(f'    <Group Condition="#{mod_id}">')
+            out += [add(trader, guid, name, "      ") for guid, name in mod_goods]
+            out.append("    </Group>")
         out.append("  </Group>")
     out.append("</ModOps>")
     return "\n".join(out) + "\n"

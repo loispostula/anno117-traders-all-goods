@@ -17,10 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from generate import TRADERS, TRADE_FEATURE  # noqa: E402
 
-# Goods the game keeps out of NPC hands on purpose and that this mod leaves alone.
-EXCLUDED = {
-    "145102": "Obsidian: Prophecies of Ash barter currency, no production building",
-}
+# Final products the mod leaves out on purpose (none so far).
+EXCLUDED = {}
 
 
 def main(assets_path, texts_path):
@@ -44,8 +42,8 @@ def main(assets_path, texts_path):
     rows = []
     for guid, values in products:
         p = values.find("Product")
-        if (p.findtext("StorageLevel") != "Building" or p.findtext("BasePrice") is None
-                or p.find("IsAbstract") is not None or p.find("IsWorkforce") is not None):
+        # Final products: the game's own "Needs" transport category (goods residents consume).
+        if p.findtext("TransportGoodsType") != "Needs":
             continue
         if guid in EXCLUDED:
             continue
@@ -53,7 +51,7 @@ def main(assets_path, texts_path):
             raise SystemExit(f"{guid} {values.findtext('Standard/Name')}: tradeable good without producer, "
                              "decide whether to include it (EXCLUDED)")
         rows.append((int(guid), guid, values.findtext("Standard/Name"),
-                     texts.get(values.findtext("Text/OasisId"), ""), p.findtext("BasePrice"),
+                     texts.get(values.findtext("Text/OasisId"), ""), p.findtext("BasePrice") or "",
                      p.findtext("AssociatedRegion") or ""))
     rows.sort()
     with open(ROOT / "reference/goods.tsv", "w", encoding="utf-8") as f:
