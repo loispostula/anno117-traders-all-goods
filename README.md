@@ -23,7 +23,7 @@ Mod for Anno 117: Pax Romana. The NPC traders sell every finished good of Latium
 - Raw goods, intermediates and building materials are not added. Those a trader already sold in vanilla (Timber, Tiles, Sardines…) stay.
 - Goods a trader already sells in a tier keep their vanilla refill rate and cap. Each added good refills **0.5 per minute up to 30** (vanilla uses 0.25–0.5 and 15–75).
 - Statuettes (`145220`) and Latrunculi Sets (`145221`) are removed from `UnsellableGoodsByNonPlayerCharacters` (TradeBalancing `140115`), so NPCs can sell them.
-- Traders already buy every good in vanilla (`AcceptAllGoods` 1). Prices are unchanged.
+- Buying is not changed. In vanilla (game 3.0) Diana, Valeria, the Procurator, Heron and Valeria of Aegyptus buy every good (`AcceptAllGoods` 1); Manx and the three pirates buy only their `PreferredGoods`. Prices are unchanged.
 
 Not changed:
 
@@ -49,6 +49,8 @@ After a game patch or a new DLC, regenerate the goods list (see [Development](#d
 | Trading goods all (Nexus mod 30) | `traiding-goods-all` | **Incompatible**: same purpose |
 | The sellers have all the building materials (Nexus mod 30, 2.0.0) | `traiding-building-materials-all` | **Incompatible**: edits the same trader lists |
 | Celtic Independence Overhaul | `celtic-independence-overhaul-jtmzac` | Optional, loads before: its 2 finished goods are sold too |
+| Valeria & Manx buy everything (Taludas) | `taludas-valeriaandmanxbuyeverything` | Compatible: sets `AcceptAllGoods` on Valeria and Manx (buying). Valeria already has it in vanilla; Manx then buys everything |
+| Valeria approves soap (Hier0nimus) | `valeria-approves-soap-hier0nimus` | Compatible, but Soap joins Valeria's `PreferredGoods`, so Valeria of Latium stops selling Soap (a trader never offers a good it prefers) |
 
 `traiding-building-materials-all` 2.0.0 (2025-11-19) was read and run through `xmltest` on the current vanilla data: it still applies with no warning. It adds 4–6 building goods (0.3 per minute, cap 75) to Diana, Valeria, Procurator and Manx with the same technique as this mod (one `Add` on `Trader/OfferedGoods/Item/Goods`, which hits every tier), but without a duplicate check: Armour ends up twice in the Procurator's end-game tier (`109173`). Loaded together with this mod, goods could be listed twice, so both of that author's mods are declared incompatible. Its `traiding-limit` companion was not checked.
 
