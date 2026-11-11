@@ -65,20 +65,6 @@ Any other mod that edits `Trader/OfferedGoods` of these nine traders may stack g
 3. Extract it into `<user documents>/Anno 117 - Pax Romana/mods/`, so you get `mods/[Gameplay] NPC Traders Sell All Finished Goods/modinfo.json`.
 4. Start the game and enable the mod. Works with existing saves. `SafeToRemove`: disabling it restores the vanilla stock.
 
-## In-game test checklist
-
-- [ ] `mod-loader.log` has no warning or error for `traders-sell-all-goods-postula`.
-- [ ] Diana's trade screen lists Albion finished goods (e.g. Beer, Cloaks) at game start, and Valeria's too. No new raw goods or building materials.
-- [ ] Procurator and Manx list Latium goods (e.g. Garum, Togas) in Albion.
-- [ ] A good bought out refills over time (0.5 per minute, cap 30).
-- [ ] A good sold in vanilla (Timber at Diana) keeps its vanilla stock.
-- [ ] The trade screen stays usable with about 38 goods (scrolling, passive trade routes to the trader).
-- [ ] With Celtic Independence Overhaul: Wicker Baskets and Ornamented Ponies are offered. Without it: no warning in `mod-loader.log`.
-- [ ] Statuettes and Latrunculi Sets are offered with Prophecies of Ash active.
-- [ ] Without Prophecies of Ash active: check what Statuettes and Latrunculi Sets show (locked products).
-- [ ] Pirates Caeso and Voada sell all finished goods when at peace.
-- [ ] Existing save loads and traders show the new stock.
-
 ## In-game results
 
 A player, 0.2.0, existing save, with Taludas' Increased Trader Production (×2) and Increased Trader Storage (300), which load after this mod and apply to the added goods too:
