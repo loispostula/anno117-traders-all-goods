@@ -134,6 +134,8 @@ Result for 0.3.0 on 2026-11-10 (xmltest GU17.1, vanilla `assets.xml` of game 3.0
 
 Same as the olive oil mod: `.github/workflows/ci.yml` runs the tests and builds the ZIP; a `vX.Y.Z` tag equal to `Version` in `mod/modinfo.json` creates a GitHub Release and uploads to mod.io when `MODIO_GAME_ID`, `MODIO_MOD_ID`, `MODIO_TOKEN` and `MODIO_DOMAIN` are set.
 
+mod.io page: listing image `media/modio-logo.png` (1920×1080, goods icons from the game via anno-117-calculator), description `media/modio-description.html` (paste with the editor's source code button). Neither is in the ZIP.
+
 ## Licensing
 
-[MIT](LICENSE). `tests/fixtures/vanilla_traders.xml` and `reference/goods.tsv` are excerpts of game data for testing; they belong to their owners. Anno and its names belong to their respective owners.
+[MIT](LICENSE). The goods icons in `media/modio-logo.png` belong to their owners and are not covered by the MIT license. `tests/fixtures/vanilla_traders.xml` and `reference/goods.tsv` are excerpts of game data for testing; they belong to their owners. Anno and its names belong to their respective owners.
