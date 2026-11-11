@@ -2,7 +2,9 @@
 
 Mod for Anno 117: Pax Romana. The NPC traders sell every finished good of Latium, Albion and Aegyptus: the 50 goods residents consume, including the Prophecies of Ash and Dawn of the Delta goods. With Celtic Independence Overhaul, also its Wicker Baskets and Ornamented Ponies.
 
-**Status: 0.2.0 tested in game by a player (see [In-game results](#in-game-results)); 0.3.0 adds Dawn of the Delta, loads without warnings on game 3.0.** The patch has been run through the mod loader's own patch engine on the vanilla `assets.xml`, with no warnings (see [Check against the game data](#check-against-the-game-data)).
+Download: [mod.io](https://mod.io/g/anno-117-pax-romana/m/npc-traders-sell-all-finished-goods) or [GitHub Releases](https://github.com/loispostula/anno117-traders-all-goods/releases).
+
+**Status: 0.2.0 tested in game by a player (see [In-game results](#in-game-results)); 0.3.x adds Dawn of the Delta, loads without warnings on game 3.0.** The patch has been run through the mod loader's own patch engine on the vanilla `assets.xml`, with no warnings (see [Check against the game data](#check-against-the-game-data)).
 
 ## What changes
 
@@ -54,11 +56,11 @@ After a game patch or a new DLC, regenerate the goods list (see [Development](#d
 
 `traiding-building-materials-all` 2.0.0 (2025-11-19) was read and run through `xmltest` on the current vanilla data: it still applies with no warning. It adds 4–6 building goods (0.3 per minute, cap 75) to Diana, Valeria, Procurator and Manx with the same technique as this mod (one `Add` on `Trader/OfferedGoods/Item/Goods`, which hits every tier), but without a duplicate check: Armour ends up twice in the Procurator's end-game tier (`109173`). Loaded together with this mod, goods could be listed twice, so both of that author's mods are declared incompatible. Its `traiding-limit` companion was not checked.
 
-Any other mod that edits `Trader/OfferedGoods` of these six traders may stack goods.
+Any other mod that edits `Trader/OfferedGoods` of these nine traders may stack goods.
 
 ## Installation
 
-1. Download `traders-sell-all-goods-postula-<version>.zip`.
+1. Download `traders-sell-all-goods-postula-<version>.zip` from [mod.io](https://mod.io/g/anno-117-pax-romana/m/npc-traders-sell-all-finished-goods) or the GitHub Releases. Anno 117 has no in-game mod browser: subscribing on mod.io does not install it.
 2. Delete the 0.1.0 folder `mods/[Gameplay] NPC Traders Sell All Goods` if present (same ModID, the folder was renamed in 0.2.0).
 3. Extract it into `<user documents>/Anno 117 - Pax Romana/mods/`, so you get `mods/[Gameplay] NPC Traders Sell All Finished Goods/modinfo.json`.
 4. Start the game and enable the mod. Works with existing saves. `SafeToRemove`: disabling it restores the vanilla stock.
